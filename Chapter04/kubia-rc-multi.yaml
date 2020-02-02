@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: kubia-multi
+spec:
+  replicas: 3
+  selector:
+    app: kubia-multi
+  template:
+    metadata:
+      labels:
+        app: kubia-multi
+    spec:
+      containers:
+      - name: kubia
+        image: luksa/kubia
+        ports:
+        - containerPort: 8080
+        - containerPort: 8443

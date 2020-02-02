@@ -1,0 +1,28 @@
+minikube start
+
+minikube addons list - вывести список доп функций minikube
+
+kubectl cluster-info
+
+kubectl run kubia --image=luksa/kubia --port=8080 --generator=run/v1 #create and run pod kubia
+
+kubectl expose rc kubia --type=LoadBalancer --name kubia-http #create service
+
+minikube service kubia-http #get external access to svc kubia-http
+
+kubectl scale rc kubia --replicas=3
+
+kubectl create namespace name_namespace
+
+kubectl delete all -all - удалить все внутри текущего namespaces
+
+kubectl get po --show-labels
+
+kubectl label pod kubia-sdd76 type=special - дать метку поду
+
+kubectl delete po -l app=foo - удалить все поды с метками app=foo
+
+kubectl label pod kubia-bs68r app=foo --overwrite - изменить метку поду
+
+kubectl delete rc kubia --cascade=false - удалить контроллер репликации, но оставить поду, которыми он управлял
+
